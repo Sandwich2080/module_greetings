@@ -59,3 +59,16 @@ func randomFormat() string {
 	// a random index for the slice of formats.
 	return formats[rand.Intn(len(formats))]
 }
+
+func HelloMsgToOptionalPersons(words string, personNames ...string) map[string]string {
+	if words == "" || personNames == nil {
+		return nil
+	}
+	msgs := make(map[string]string)
+	count := len(personNames)
+	for i := 0; i < count; i++ {
+		msgs[personNames[i]] = fmt.Sprintf("Hello %v, %v", personNames[i], words)
+	}
+	return msgs
+
+}
